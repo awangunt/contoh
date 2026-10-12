@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Want My Noodle — Melawai, Jakarta Selatan</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS External -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fa-solid fa-bowl-rice"></i> I WANT MY NOODLE
+            </a>
+
+            <!-- Desktop Navigation -->
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Beranda</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#concept">Konsep</a></li>
+                <li><a href="#location">Lokasi & Maps</a></li>
+            </ul>
+
+            <!-- Header Order Quick Buttons -->
+            <div class="nav-actions">
+                <a href="https://gofood.co.id/en/jakarta/restaurant/i-want-my-noodle-melawai-a613d624-4963-4473-a79b-cbe3bf33eade" target="_blank" class="btn-delivery btn-gojek-sm" title="Pesan via GoFood">
+                    <i class="fa-solid fa-motorcycle"></i> <span>GoFood</span>
+                </a>
+                <a href="https://food.grab.com/id/en/restaurant/i-want-my-noodle-melawai-delivery/6-C7DUE6EFR22FA6?sourceID=20261010_202122_183929c07d6146b3954f1e5d06e5af42_MEXMPS" target="_blank" class="btn-delivery btn-grab-sm" title="Pesan via GrabFood">
+                    <i class="fa-solid fa-car"></i> <span>GrabFood</span>
+                </a>
+                <button class="mobile-toggle" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div class="mobile-drawer" id="mobileDrawer">
+            <a href="#home" onclick="closeMobileMenu()">Beranda</a>
+            <a href="#menu" onclick="closeMobileMenu()">Menu Makanan</a>
+            <a href="#concept" onclick="closeMobileMenu()">Konsep Toko</a>
+            <a href="#location" onclick="closeMobileMenu()">Lokasi & Maps</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (HOME) -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="badge"><i class="fa-solid fa-star"></i> ZERO ZERO PORK LARD • 100% NOODLE LOVE</span>
+                <h1>I Want My Noodle <span>Jakarta Selatan</span></h1>
+                <p>Eggs. Flour. Passion. Our noodle recipe, made fresh daily. Nikmati hidangan mi buatan tangan berkualitas tinggi langsung dari dapur kami di Melawai, Jakarta Selatan.</p>
+                
+                <div class="hero-delivery-box">
+                    <span class="delivery-label">Pesan Langsung Secara Online:</span>
+                    <div class="hero-action">
+                        <a href="https://gofood.co.id/en/jakarta/restaurant/i-want-my-noodle-melawai-a613d624-4963-4473-a79b-cbe3bf33eade" target="_blank" class="btn btn-gojek">
+                            <i class="fa-solid fa-motorcycle"></i> Order di GoFood
+                        </a>
+                        <a href="https://food.grab.com/id/en/restaurant/i-want-my-noodle-melawai-delivery/6-C7DUE6EFR22FA6?sourceID=20261010_202122_183929c07d6146b3954f1e5d06e5af42_MEXMPS" target="_blank" class="btn btn-grab">
+                            <i class="fa-solid fa-car"></i> Order di GrabFood
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3D CANVAS INTERACTIVE BOWL -->
+            <div class="hero-3d-wrapper">
+                <div id="canvas-3d-container"></div>
+                <div class="canvas-hint">
+                    <i class="fa-solid fa-arrows-rotate"></i> Klik & Geser untuk Memutar 3D
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Menu Spesial Kami</h2>
+                <p>Silakan klik detail atau langsung pesan melalui aplikasi GoFood / GrabFood favorit Anda.</p>
+            </div>
+
+            <!-- MENU CATEGORY FILTERS -->
+            <div class="menu-categories">
+                <button class="filter-btn active" onclick="filterMenu('all', event)">Semua Menu</button>
+                <button class="filter-btn" onclick="filterMenu('signature', event)">Signature</button>
+                <button class="filter-btn" onclick="filterMenu('spicy', event)">Pedas & Soup</button>
+            </div>
+
+            <!-- MENU GRID -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Diisi Secara Dinamis dari script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCEPT / ABOUT SECTION -->
+    <section id="concept" class="about-section">
+        <div class="container about-grid">
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-egg"></i></div>
+                <h3>Zero Gravity Eggs</h3>
+                <p>Filosofi *happy yolk, happy mie*. Telur setengah matang (*soft-boiled*) dengan tekstur creamy yang sempurna.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-wheat-awn"></i></div>
+                <h3>Freshly Spun Noodles</h3>
+                <p>Diproduksi segar setiap hari (*fresh daily*) tanpa bahan pengawet sintesis dan *Zero Pork Lard*.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon"><i class="fa-solid fa-heart"></i></div>
+                <h3>Break To Reveal Joy</h3>
+                <p>Racikan saus olahan sendiri, topping ayam gurih, jamur shiitake, hingga varian kuah kimchi pedas yang menggugah selera.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & MAPS SECTION -->
+    <section id="location" class="location-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Lokasi Outlet Melawai</h2>
+                <p>Kunjungi toko kami secara langsung di kawasan kuliner favorit Jakarta Selatan.</p>
+            </div>
+
+            <div class="location-wrapper">
+                <div class="location-info">
+                    <h3>I Want My Noodle — Melawai</h3>
+                    <p><i class="fa-solid fa-location-dot"></i> Jl. Panglima Polim IX No.15 7, RT.7/RW.6, Melawai, Kec. Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12160</p>
+                    <p><i class="fa-solid fa-clock"></i> Buka Setiap Hari: 10.00 - 21.00 WIB</p>
+                    <p><i class="fa-solid fa-shield-halved"></i> 100% No Pork No Lard</p>
+                    
+                    <a href="https://maps.google.com/?q=Jl.+Panglima+Polim+IX+No.15+7,+RT.7/RW.6,+Melawai,+Kec.+Kby.+Baru,+Kota+Jakarta+Selatan" target="_blank" class="btn btn-primary btn-block">
+                        <i class="fa-solid fa-map-location-dot"></i> Buka Petunjuk di Google Maps
+                    </a>
+                </div>
+
+                <!-- GOOGLE MAPS EMBED -->
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.126432421941!2d106.79728247589606!3d-6.247723993740702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f168f05e492b%3A0x6b640a37340d0e65!2sJl.%20Panglima%20Polim%20IX%20No.15%2C%20RT.7%2FRW.6%2C%20Melawai%2C%20Kec.%20Kby.%20Baru%2C%20Kota%20Jakarta%20Selatan!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 I Want My Noodle Indonesia • Melawai, Jakarta Selatan.</p>
+    </footer>
+
+    <!-- MODAL DETAIL MENU -->
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeDetailModal()">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Diisi oleh script.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js (3D Renderer Library) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- JS External -->
+    <script src="script.js"></script>
+</body>
+</html>
